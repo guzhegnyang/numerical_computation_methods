@@ -1,0 +1,26 @@
+xk = [0; 1; 2; 3; 4];
+f = [0; 0.75; 2.25; 3; 2.25];
+t = divided_difference_table(f);
+real_t = [xk, t];
+
+x = 1.5;
+P1 = zeros(size(f, 1) - 1, 1);
+tt = t(1:(size(t, 1) + 1):(size(t, 1) * size(t, 1)));
+tt(2:size(tt)) = tt(2:size(tt)) * (x - xk(1, 1))
+P1(1) = t(1, 1) + t(2, 2) * ;
+
+
+for i = 2:size(f, 1) - 1
+    tt = tt * (x - xk(i - 1));
+    P1(i) = P1(i - 1) + tt(i, i);
+end
+y1 = 3 * (sin(pi * x / 6)) ^ 2;
+
+x = 3.5;
+P2 = zeros(size(f, 1) - 1, 1);
+P2(1) = t(1, 1) + t(2, 2) * (x - xk(1, 1));
+tt = t(:, 1:size(t, 1));
+for i = 2:size(f, 1) - 1
+    P2(i) = P2(i - 1) + t(i, i) * (x - xk(i - 1));
+end
+y2 = 3 * (sin(pi * x / 6)) ^ 2;
