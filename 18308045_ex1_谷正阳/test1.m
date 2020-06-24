@@ -20,8 +20,9 @@ end
 kk = gap:km;
 tt1 = spline(k, t1, kk);
 tt2 = spline(k, t2, kk);
+figure
 hold on
 plot(kk, tt1)
 plot(kk, tt2)
-legend('gauss_seidel','gauss_seidel_parallel');
-claer
+legend('Gauss-Seidel','Gauss-Seidel Parallel');
+clear
